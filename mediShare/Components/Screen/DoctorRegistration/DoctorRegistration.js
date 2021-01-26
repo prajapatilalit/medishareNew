@@ -1,15 +1,45 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { View, Text, AppRegistry } from "react-native";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 
 const DoctorRegistration = () => {
   return (
-    <View>
-      <Text>DoctorRegistration</Text>
-      <StatusBar style="auto" />
+    <View style={styles.container}>
+      <Text style={styles.header}>DoctorRegistration</Text>
+      <View style={styles.innerContainer}>
+        <TextInput placeholder="DoctorId" style={styles.inputField} />
+        <TextInput placeholder="DoctorName" style={styles.inputField} />
+        <TextInput placeholder="DoctorEmail" style={styles.inputField} />
+        <TextInput placeholder="Password" style={styles.inputField} />
+        <TextInput placeholder="Confirmpassword" style={styles.inputField} />
+        <TextInput placeholder="DoctorAddress" style={styles.inputField} />
+        <Button title="DoctorRegistration" />
+      </View>
     </View>
   );
 };
-
-AppRegistry.registerComponent("DoctorRegistration", () => DoctorRegistration);
 export default DoctorRegistration;
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 10,
+    borderRadius: 5,
+    padding: 20,
+    fontSize: 30,
+    backgroundColor: "#62959c",
+  },
+  innerContainer: {
+    padding: 15,
+  },
+  header: {
+    fontSize: 50,
+    textAlign: "center",
+    textTransform: "uppercase",
+  },
+  inputField: {
+    borderWidth: 1,
+    backgroundColor: "#a6f0c6",
+    padding: 8,
+    margin: 2,
+    borderRadius: 2,
+  },
+});
