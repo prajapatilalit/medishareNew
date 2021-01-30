@@ -1,11 +1,18 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ImagePropTypes,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { NativeRouter, Route } from "react-router-native";
 import Registration from "../../Auth/Register/Registration/Registration";
 import DoctorRegistration from "../DoctorRegistration/DoctorRegistration";
 import OrgnizationRegistration from "../OrgnizationRegistration/OrgnizationRegistration";
 import UserRegistration from "../UserRegistration/UserRegistration";
 import Login from "../../Auth/Login/Login";
+import SearchBar from "../Search/search";
 
 const Home = () => {
   return (
@@ -15,6 +22,7 @@ const Home = () => {
           <View>
             <Registration />
             <Login />
+            <SearchBar />
           </View>
           <Route path="/userregistration" component={UserRegistration} />
           <Route
