@@ -10,6 +10,7 @@ import Home from "./Components/Screen/Home/Home";
 
 import Navigation from "./Components/Screen/Navigation/Navigation";
 import SplashScreen from "./Components/Screen/SplashScreen/SplashScreen";
+import Auth from "./Components/Auth/Auth";
 
 const Stack = createStackNavigator();
 
@@ -17,8 +18,22 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SplashScreen">
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Navigation" component={Navigation} />
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Auth"
+          component={Auth}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DrawerNavigationRoutes"
+          component={DrawerNavigationRoutes}
+          // Hiding header for Navigation Drawer
+          options={{ headerShown: false }}
+        />
 
         {/* <Navigation />
         <SplashScreen />
