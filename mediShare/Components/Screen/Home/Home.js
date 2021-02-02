@@ -7,11 +7,11 @@ import {
   View,
 } from "react-native";
 import { NativeRouter, Route } from "react-router-native";
-import Registration from "../../Auth/Register/Registration/Registration";
+import RegistrationScreen from "../Register/Registration/RegistrationScreen";
 import DoctorRegistration from "../DoctorRegistration/DoctorRegistration";
 import OrgnizationRegistration from "../OrgnizationRegistration/OrgnizationRegistration";
 import UserRegistration from "../UserRegistration/UserRegistration";
-import Login from "../../Auth/Login/Login";
+import LoginScreen from "../Login/LoginScreen";
 import SearchBar from "../Search/search";
 
 const Home = () => {
@@ -20,8 +20,8 @@ const Home = () => {
       <NativeRouter>
         <ScrollView>
           <View>
-            <Registration />
-            <Login />
+            <RegistrationScreen />
+            <LoginScreen />
             <SearchBar />
           </View>
           <Route path="/userregistration" component={UserRegistration} />

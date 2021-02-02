@@ -1,58 +1,49 @@
 import * as React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { NativeRouter, Route } from "react-router-native";
-import About from "./Components/Screen/About/About";
-import Profile from "./Components/Screen/Profile/Profile";
-import Home from "./Components/Screen/Home/Home";
-
-import Navigation from "./Components/Screen/Navigation/Navigation";
+// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SplashScreen from "./Components/Screen/SplashScreen/SplashScreen";
 import Auth from "./Components/Auth/Auth";
+// import DrawerNavigationRoutes from "./Components/DrawerNavigation/DrawerNavigationRoutes";
 
 const Stack = createStackNavigator();
+// const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
+      <Stack.Navigator
+        initialRouteName="SplashScreen"
+        screenOption={{
+          headerStyle: {
+            backgroundColor: "#009387",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      >
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          options={{ headerShown: false }}
+          options={{ title: "SplashScreen" }}
         />
         <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{ headerShown: false }}
+          options={{ title: "Auth" }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="DrawerNavigationRoutes"
           component={DrawerNavigationRoutes}
           // Hiding header for Navigation Drawer
           options={{ headerShown: false }}
-        />
-
-        {/* <Navigation />
-        <SplashScreen />
-        <View style={styles.container}>
-          <Text style={{ color: "#ffff" }}>Welcome to MediProfiler</Text>
-        </View>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/profile" component={Profile} /> */}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 25,
-    padding: 10,
-  },
-});
 
 export default App;

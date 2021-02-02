@@ -1,22 +1,22 @@
 import * as React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
-import Login from "./Login/Login";
-import Registeration from "./Register/Registration/Registration";
+import LoginScreen from "../Screen/Login/LoginScreen";
+import RegisterationScreen from "../Screen/Register/Registration/RegistrationScreen";
 
 const Stack = createStackNavigator();
 
 const Auth = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator>
       <Stack.Screen
-        name="Login"
-        component={Login}
+        name="LoginScreen"
+        component={LoginScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Registeration"
-        component={Registeration}
+        name="RegisterationScreen"
+        component={RegisterationScreen}
         options={{
           title: "Register",
           headerStyle: {

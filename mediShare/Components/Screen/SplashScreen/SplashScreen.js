@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { ActivityIndicator, View, StyleSheet, Image, Text } from "react-native";
+import {
+  ActivityIndicator,
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  Button,
+} from "react-native";
 
 // import AsyncStorage from "@react-native-community/async-storage";
 
 const SplashScreen = ({ navigation }) => {
   //State for ActivityIndicator animation
   const [animating, setAnimating] = useState(true);
+  setTimeout(() => {
+    navigation.navigate("Auth");
+  }, 5000);
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,6 +42,12 @@ const SplashScreen = ({ navigation }) => {
         size="large"
         style={styles.activityIndicator}
       />
+      {/* <Button
+        title="Go to loginPage"
+        onPress={() =>
+          navigation.navigate("SplashScreen", { LoginScreen: "LoginScreen" })
+        }
+      /> */}
     </View>
   );
 };

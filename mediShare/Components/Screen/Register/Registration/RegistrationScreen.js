@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Link } from "react-router-native";
 
-const Registration = () => {
+const RegistrationScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.nav}>
@@ -33,7 +33,7 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default RegistrationScreen;
 
 const styles = StyleSheet.create({
   container: {
