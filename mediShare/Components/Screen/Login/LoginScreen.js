@@ -90,10 +90,10 @@ const LoginScreen = ({ navigation }) => {
               <Image
                 source={require("../../../Images/logo1.jpg")}
                 style={{
-                  width: "50%",
+                  width: 100,
                   height: 100,
-                  resizeMode: "contain",
                   margin: 30,
+                  borderRadius: 100,
                 }}
               />
             </View>
@@ -101,7 +101,7 @@ const LoginScreen = ({ navigation }) => {
               <TextInput
                 style={styles.inputStyle}
                 onChangeText={(UserEmail) => setUserEmail(UserEmail)}
-                placeholder="Enter Email" //dummy@abc.com
+                placeholder="Enter Email"
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
                 keyboardType="email-address"

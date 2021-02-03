@@ -106,9 +106,10 @@ const RegisterScreen = (props) => {
         <Image
           source={require("../../../Images/logo.png")}
           style={{
-            height: 150,
-            resizeMode: "contain",
-            alignSelf: "center",
+            width: 100,
+            height: 100,
+            margin: 30,
+            borderRadius: 100,
           }}
         />
         <Text style={styles.successTextStyle}>Registration Successful</Text>
@@ -124,7 +125,7 @@ const RegisterScreen = (props) => {
   }
   return (
     <View style={{ flex: 1, backgroundColor: "#307ecc" }}>
-      <Loader loading={loading} />
+      {/* <Loader loading={loading} /> */}
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -136,10 +137,10 @@ const RegisterScreen = (props) => {
           <Image
             source={require("../../../Images/logo1.jpg")}
             style={{
-              width: "50%",
+              width: 100,
               height: 100,
-              resizeMode: "contain",
               margin: 30,
+              borderRadius: 100,
             }}
           />
         </View>
@@ -250,7 +251,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     backgroundColor: "#7DE24E",
     borderWidth: 0,
-    color: "#FFFFFF",
+    color: "#fff",
     borderColor: "#7DE24E",
     height: 40,
     alignItems: "center",

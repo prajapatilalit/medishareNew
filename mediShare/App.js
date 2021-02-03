@@ -28,12 +28,12 @@ const App = () => {
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          options={{ title: "SplashScreen" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{ title: "Auth" }}
+          options={{ headerShown: false }}
         />
         {/* <Stack.Screen
           name="DrawerNavigationRoutes"

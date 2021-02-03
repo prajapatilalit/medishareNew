@@ -2,7 +2,8 @@ import * as React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../Screen/Login/LoginScreen";
-import RegisterationScreen from "../Screen/Register/Registration/RegistrationScreen";
+// import RegisterationScreen from "../Screen/Register/Registration/RegistrationScreen";
+import RegisterScreen from "../Screen/UserRegistration/UserRegistration/";
 
 const Stack = createStackNavigator();
 
@@ -15,14 +16,14 @@ const Auth = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="RegisterationScreen"
-        component={RegisterationScreen}
+        name="RegisterScreen"
+        component={RegisterScreen}
         options={{
           title: "Register",
           headerStyle: {
             backgroundColor: "#307ecc",
           },
-          headerTintColor: "fff",
+          headerTintColor: "#fff",
           headerTitleStyle: {
             fontWeight: "bold",
           },

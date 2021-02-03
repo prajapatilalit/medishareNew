@@ -42,12 +42,6 @@ const SplashScreen = ({ navigation }) => {
         size="large"
         style={styles.activityIndicator}
       />
-      {/* <Button
-        title="Go to loginPage"
-        onPress={() =>
-          navigation.navigate("SplashScreen", { LoginScreen: "LoginScreen" })
-        }
-      /> */}
     </View>
   );
 };
