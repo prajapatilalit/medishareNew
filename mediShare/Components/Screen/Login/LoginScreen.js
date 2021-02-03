@@ -43,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
     }
     formBody = formBody.join("&");
 
-    fetch("http://localhost:3000/api/user/login", {
+    fetch("http://localhost:8000/users/login", {
       method: "POST",
       body: formBody,
       headers: {
@@ -142,7 +142,7 @@ const LoginScreen = ({ navigation }) => {
               style={styles.registerTextStyle}
               onPress={() => navigation.navigate("RegisterScreen")}
             >
-              New Here ? Register
+              New Here ? Click To Register
             </Text>
           </KeyboardAvoidingView>
         </View>

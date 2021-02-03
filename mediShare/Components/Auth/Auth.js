@@ -19,7 +19,7 @@ const Auth = () => {
         name="RegisterScreen"
         component={RegisterScreen}
         options={{
-          title: "Register",
+          title: "Patient Registeration",
           headerStyle: {
             backgroundColor: "#307ecc",
           },

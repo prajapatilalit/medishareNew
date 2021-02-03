@@ -67,7 +67,7 @@ const RegisterScreen = (props) => {
     }
     formBody = formBody.join("&");
 
-    fetch("http://localhost:3000/api/user/register", {
+    fetch("http://localhost:8000/users/register/patient ", {
       method: "POST",
       body: formBody,
       headers: {
