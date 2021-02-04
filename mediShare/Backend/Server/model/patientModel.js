@@ -10,12 +10,11 @@ const patientModelSchema = new Schema({
 
   patient_name: {
     type: String,
-    required: true,
   },
 
   patient_email: {
     type: String,
-    required: true,
+
     unique: true,
     lowercase: true,
     sparse: true,
@@ -23,12 +22,10 @@ const patientModelSchema = new Schema({
 
   password: {
     type: String,
-    required: true,
   },
 
   patient_phone_no: {
-    type: Number,
-    required: true,
+    type: String,
   },
 });
 

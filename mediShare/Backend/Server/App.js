@@ -24,13 +24,61 @@ mongoose.connection.on("error", (err) => {
   console.log("Error failed to connect database");
 });
 
-app.get("http://localhost:8000/catalog/patients/:id", (req, res) => {
-  res.send("Welcome");
+app.get("/", (req, res) => {
+  User.find({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.post("/patient", (req, res) => {
-  console.log(req.body);
-  res.send("posted");
+  const user = new User({
+    UID: req.body.UID,
+    patient_name: req.body.patient_name,
+    patient_email: req.body.patient_email,
+    password: req.body.password,
+    patient_phone_no: req.body.patient_phone_no,
+  });
+  user
+    .save()
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/delete", (req, res) => {
+  User.findByIdAndDelete(req.body.id)
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/update", (req, res) => {
+  User.findByIdAndUpdate(req.body.id, {
+    UID: req.body.UID,
+    patient_name: req.body.patient_name,
+    patient_email: req.body.patient_email,
+    password: req.body.password,
+    patient_phone_no: req.body.patient_phone_no,
+  })
+    .then((data) => {
+      console.log(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(port, () => {
