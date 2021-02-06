@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 // import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SplashScreen from "./Components/Screen/SplashScreen/SplashScreen";
 import Auth from "./Components/Auth/Auth";
-// import DrawerNavigationRoutes from "./Components/DrawerNavigation/DrawerNavigationRoutes";
+import DrawerNavigatorRoutes from "./Components/DrawerNavigation/DrawerNavigatorRoutes";
 
 const Stack = createStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -35,12 +35,12 @@ const App = () => {
           component={Auth}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen
-          name="DrawerNavigationRoutes"
-          component={DrawerNavigationRoutes}
+        <Stack.Screen
+          name="DrawerNavigatorRoutes"
+          component={DrawerNavigatorRoutes}
           // Hiding header for Navigation Drawer
           options={{ headerShown: false }}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

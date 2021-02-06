@@ -14,7 +14,7 @@ import UserRegistration from "../UserRegistration/UserRegistration";
 import LoginScreen from "../Login/LoginScreen";
 import SearchBar from "../Search/search";
 
-const Home = () => {
+const HomeScreen = () => {
   return (
     <>
       <NativeRouter>
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;

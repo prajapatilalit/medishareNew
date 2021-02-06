@@ -11,53 +11,48 @@ import {
   ScrollView,
 } from "react-native";
 
-// import Loader from "./Components/Loader";
+import Loader from "../Loader/Loader";
 
 const RegisterScreen = (props) => {
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userAge, setUserAge] = useState("");
-  const [userAddress, setUserAddress] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [patient_name, setPatient_name] = useState("");
+  const [patient_email, setPatient_email] = useState("");
+  const [password, setPassword] = useState("");
+  const [patient_phone_no, setPatient_phone_no] = useState("");
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState("");
   const [isRegistraionSuccess, setIsRegistraionSuccess] = useState(false);
 
   const emailInputRef = createRef();
-  const ageInputRef = createRef();
-  const addressInputRef = createRef();
+
+  const phone_noInputRef = createRef();
   const passwordInputRef = createRef();
 
   const handleSubmitButton = () => {
     setErrortext("");
-    if (!userName) {
+    if (!patient_name) {
       alert("Please fill Name");
       return;
     }
-    if (!userEmail) {
+    if (!patient_email) {
       alert("Please fill Email");
       return;
     }
-    if (!userAge) {
-      alert("Please fill Age");
-      return;
-    }
-    if (!userAddress) {
-      alert("Please fill Address");
-      return;
-    }
-    if (!userPassword) {
+
+    if (!password) {
       alert("Please fill Password");
+      return;
+    }
+    if (!patient_phone_no) {
+      alert("Please fill Phone_no");
       return;
     }
     //Show Loader
     setLoading(true);
     var dataToSend = {
-      name: userName,
-      email: userEmail,
-      age: userAge,
-      address: userAddress,
-      password: userPassword,
+      patient_name,
+      patient_email,
+      password,
+      patient_phone_no,
     };
     var formBody = [];
     for (var key in dataToSend) {
@@ -69,10 +64,11 @@ const RegisterScreen = (props) => {
 
     fetch("http://localhost:8000/users/register/patient ", {
       method: "POST",
-      body: formBody,
+      body: JSON.stringify(formBody),
       headers: {
         //Header Defination
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
@@ -87,6 +83,7 @@ const RegisterScreen = (props) => {
         } else {
           setErrortext(responseJson.msg);
         }
+        return responseJson.patient;
       })
       .catch((error) => {
         //Hide Loader
@@ -125,7 +122,7 @@ const RegisterScreen = (props) => {
   }
   return (
     <View style={{ flex: 1, backgroundColor: "#307ecc" }}>
-      {/* <Loader loading={loading} /> */}
+      <Loader loading={loading} />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -148,7 +145,7 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserName) => setUserName(UserName)}
+              onChangeText={(patient_name) => setPatient_name(patient_name)}
               underlineColorAndroid="#f000"
               placeholder="Enter Name"
               placeholderTextColor="#8b9cb5"
@@ -163,7 +160,7 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+              onChangeText={(patient_email) => setPatient_email(patient_email)}
               underlineColorAndroid="#f000"
               placeholder="Enter Email"
               placeholderTextColor="#8b9cb5"
@@ -179,7 +176,7 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+              onChangeText={(password) => setPassword(password)}
               underlineColorAndroid="#f000"
               placeholder="Enter Password"
               placeholderTextColor="#8b9cb5"
@@ -187,7 +184,7 @@ const RegisterScreen = (props) => {
               returnKeyType="next"
               secureTextEntry={true}
               onSubmitEditing={() =>
-                ageInputRef.current && ageInputRef.current.focus()
+                phone_noInputRef.current && phone_noInputRef.current.focus()
               }
               blurOnSubmit={false}
             />
@@ -195,33 +192,20 @@ const RegisterScreen = (props) => {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(UserAge) => setUserAge(UserAge)}
+              onChangeText={(patient_phone_no) =>
+                setPatient_phone_no(patient_phone_no)
+              }
               underlineColorAndroid="#f000"
-              placeholder="Enter Age"
+              placeholder="Enter Phone No."
               placeholderTextColor="#8b9cb5"
               keyboardType="numeric"
-              ref={ageInputRef}
-              returnKeyType="next"
-              onSubmitEditing={() =>
-                addressInputRef.current && addressInputRef.current.focus()
-              }
-              blurOnSubmit={false}
-            />
-          </View>
-          <View style={styles.SectionStyle}>
-            <TextInput
-              style={styles.inputStyle}
-              onChangeText={(UserAddress) => setUserAddress(UserAddress)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Address"
-              placeholderTextColor="#8b9cb5"
-              autoCapitalize="sentences"
-              ref={addressInputRef}
+              ref={phone_noInputRef}
               returnKeyType="next"
               onSubmitEditing={Keyboard.dismiss}
               blurOnSubmit={false}
             />
           </View>
+
           {errortext != "" ? (
             <Text style={styles.errorTextStyle}>{errortext}</Text>
           ) : null}

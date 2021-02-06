@@ -3,11 +3,11 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SearchBar from "../Search/search";
 
-const About = () => {
+const AboutScreen = () => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.header}>About</Text>
+        <Text style={styles.header}>AboutScreen</Text>
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default About;
+export default AboutScreen;

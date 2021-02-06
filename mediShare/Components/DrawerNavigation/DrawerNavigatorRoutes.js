@@ -1,26 +1,50 @@
 import React from "react";
-
 // Import Navigators from React Navigation
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 // Import Screens
-import Home from "../Screen/Home/Home";
-// import SettingsScreen from "./DrawerScreens/SettingsScreen";
-// import CustomSidebarMenu from "./Components/CustomSidebarMenu";
-// import NavigationDrawerHeader from "./Components/NavigationDrawerHeader/";
+import HomeScreen from "../Screen/Home/HomeScreen";
+import AboutScreen from "../Screen/About/AboutScreen";
+import SettingsScreen from "../Screen/Setting/SettingsScreen";
+import CustomSidebarMenu from "../Sliderbar/CustomSidebarMenu";
+import NavigationDrawerHeader from "../Navigation/NavigationDrawerHeader";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const homeScreenStack = ({ navigation }) => {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeScreen}
         options={{
           title: "Home", //Set Header Title
+          headerLeft: () => (
+            <NavigationDrawerHeader navigationProps={navigation} />
+          ),
+          headerStyle: {
+            backgroundColor: "#307ecc", //Set Header color
+          },
+          headerTintColor: "#fff", //Set Header text color
+          headerTitleStyle: {
+            fontWeight: "bold", //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const aboutScreenStack = ({ navigation }) => {
+  return (
+    <Stack.Navigator initialRouteName="AboutScreen">
+      <Stack.Screen
+        name="AboutScreen"
+        component={AboutScreen}
+        options={{
+          title: "About", //Set Header Title
           headerLeft: () => (
             <NavigationDrawerHeader navigationProps={navigation} />
           ),
@@ -83,6 +107,11 @@ const DrawerNavigatorRoutes = (props) => {
         name="homeScreenStack"
         options={{ drawerLabel: "Home Screen" }}
         component={homeScreenStack}
+      />
+      <Drawer.Screen
+        name="aboutScreenStack"
+        options={{ drawerLabel: "About Screen" }}
+        component={aboutScreenStack}
       />
       <Drawer.Screen
         name="settingScreenStack"

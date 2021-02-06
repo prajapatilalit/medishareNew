@@ -13,11 +13,11 @@ import {
 
 // import AsyncStorage from "@react-native-community/async-storage";
 
-// import Loader from "./Components/Loader";
+import Loader from "../Loader/Loader";
 
 const LoginScreen = ({ navigation }) => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+  const [patient_email, setPatient_email] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState("");
 
@@ -25,16 +25,16 @@ const LoginScreen = ({ navigation }) => {
 
   const handleSubmitPress = () => {
     setErrortext("");
-    if (!userEmail) {
+    if (!patient_email) {
       alert("Please fill Email");
       return;
     }
-    if (!userPassword) {
+    if (!password) {
       alert("Please fill Password");
       return;
     }
     setLoading(true);
-    let dataToSend = { email: userEmail, password: userPassword };
+    let dataToSend = { email: patient_email, password: password };
     let formBody = [];
     for (let key in dataToSend) {
       let encodedKey = encodeURIComponent(key);
@@ -75,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.mainBody}>
-      {/* <Loader loading={loading} /> */}
+      <Loader loading={loading} />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -100,7 +100,9 @@ const LoginScreen = ({ navigation }) => {
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+                onChangeText={(patient_email) =>
+                  setPatient_email(patient_email)
+                }
                 placeholder="Enter Email"
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
@@ -116,7 +118,7 @@ const LoginScreen = ({ navigation }) => {
             <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+                onChangeText={(password) => setPassword(password)}
                 placeholder="Enter Password" //12345
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
